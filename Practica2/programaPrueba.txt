@@ -1,0 +1,21 @@
+li $t0,0
+li $t4,1
+addi $t0,$t0,5
+sw $t0,0($s0)
+li $t1,1
+li $t3,3
+sw $t3,0($t4)
+lw $t2,0($t1)
+while: beq $t2,$t0,endwhile
+add $t2,$t2,$t1
+j while
+endwhile: sw $t2,0($s1)
+lw $t5,0($t4)
+add $s0,$t5,$t1
+sub $s1,$t5,$t1
+add $t2,$t2,$t1
+j FIN
+FIN: addi $t6,$t3,10
+addi $t3,$t3,1
+sw $t3,8($s2)
+sub $t7,$t3,$t3
